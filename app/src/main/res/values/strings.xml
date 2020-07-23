@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Chat App</string>
+    <string name="not_a_member_register_here">Not a member? Register here</string>
+    <string name="enter_your_e_mail">Enter your e-mail</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="enter_your_last_name">Enter your user name</string>
+    <string name="enter_e_mail_and_password">Enter email and password</string>
+    <string name="error">Error</string>
+    <string name="try_again">Try again</string>
+    <string name="choose_your_avatar">Choose your avatar</string>
+    <string name="log_in">Log In</string>
+    <string name="users">ჩოყლაყთა სია</string>
+</resources>
