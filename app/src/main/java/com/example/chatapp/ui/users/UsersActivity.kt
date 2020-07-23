@@ -42,6 +42,9 @@ class UsersActivity : AppCompatActivity() {
                 usersRecyclerView.visibility = View.VISIBLE
                 progressBar.visibility = View.GONE
                 adapter.notifyDataSetChanged()
+                if (items.size<1){
+                    FirebaseAuth.getInstance().signOut()
+                }
             }
         })
     }
