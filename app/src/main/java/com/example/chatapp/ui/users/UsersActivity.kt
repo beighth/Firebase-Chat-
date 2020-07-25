@@ -1,11 +1,13 @@
 package com.example.chatapp.ui.users
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatapp.R
 import com.example.chatapp.ui.authentication.models.User
+import com.example.chatapp.ui.messages.MessagesActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -32,7 +34,16 @@ class UsersActivity : AppCompatActivity() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                adapter = UsersAdapter(items)
+                adapter = UsersAdapter(items, object : OnclickListener{
+                    override fun clickListener(position: Int) {
+                        val user = items[position]
+                        val intent = Intent(this@UsersActivity, MessagesActivity::class.java)
+                        intent.putExtra("url", user.url)
+                        intent.putExtra("userName", user.userName)
+                        startActivity(intent)
+                    }
+
+                })
                 usersRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
                 usersRecyclerView.adapter = adapter
                 snapshot.children.forEach {
