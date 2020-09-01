@@ -162,9 +162,9 @@ class RegisterActivity : AppCompatActivity() {
 
 
     private fun saveUserToDatabase(profileImageUrl: String) {
-        val uuid = FirebaseAuth.getInstance().uid ?: ""
-        val ref = FirebaseDatabase.getInstance().getReference("/users/$uuid")
-        val user = User(userNameET.text.toString(), uuid, profileImageUrl)
+        val fromUid = FirebaseAuth.getInstance().currentUser!!.uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$fromUid")
+        val user = User(userNameET.text.toString(), fromUid, "", profileImageUrl, "", 0)
         ref.setValue(user)
             .addOnSuccessListener {
                 d("saveUser", "Saved to database")
@@ -175,13 +175,9 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun saveUserWithoutAvatar() {
-        val uuid = FirebaseAuth.getInstance().uid ?: ""
-        val ref = FirebaseDatabase.getInstance().getReference("/users/$uuid")
-        val user =
-            User(
-                userNameET.text.toString(),
-                uuid
-            )
+        val fromUid = FirebaseAuth.getInstance().currentUser!!.uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$fromUid")
+        val user = User(userNameET.text.toString(), fromUid, "", "https://img1.looper.com/img/gallery/we-now-know-the-one-time-batman-was-supposed-to-die/intro-1576009072.jpg", "", 0)
         ref.setValue(user)
     }
 }

@@ -8,23 +8,12 @@
     android:layout_margin="20dp"
     app:cardElevation="10dp"
     android:padding="10dp">
-    <LinearLayout
-        android:background="@drawable/gradient_1"
+    <FrameLayout
+        android:background="@drawable/gradient_2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/avatarMessage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_gravity="start"
-            android:padding="10dp"
-            android:src="@mipmap/ic_launcher_round"
-            app:civ_border_width="0.1dp"
-            app:civ_border_color="#FF000000"/>
-
+        android:layout_height="match_parent">
         <TextView
-            android:id="@+id/messageTV"
+            android:id="@+id/messageTV2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="50dp"
@@ -32,5 +21,16 @@
             android:text="@string/app_name"
             android:textColor="@color/white"
             android:textSize="18sp" />
-    </LinearLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatarMessage2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_gravity="end"
+            android:src="@mipmap/ic_launcher_round"
+            app:civ_border_width="0.1dp"
+            app:civ_border_color="#FF000000"/>
+
+    </FrameLayout>
 </androidx.cardview.widget.CardView>

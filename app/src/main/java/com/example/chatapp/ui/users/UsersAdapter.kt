@@ -1,5 +1,6 @@
 package com.example.chatapp.ui.users
 
+import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,7 @@ class UsersAdapter(private val items: MutableList<User>, val onclickListener: On
             model = items[adapterPosition]
             Glide.with(itemView.context).load(model.url)
                 .into(itemView.avatar)
+            d("avatarPic", model.url)
             itemView.userNameTV.text = model.userName
             itemView.setOnClickListener{
                 onclickListener.clickListener(adapterPosition)
